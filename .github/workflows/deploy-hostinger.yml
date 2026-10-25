@@ -1,0 +1,61 @@
+name: Deploy Theme zu Hostinger
+
+# Bei jedem Push auf main wird das Theme per rsync über SSH nach Hostinger übertragen.
+# Manuell startbar über "Run workflow".
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HOST: ${{ secrets.HOSTINGER_HOST }}
+      PORT: ${{ secrets.HOSTINGER_PORT }}
+      USER: ${{ secrets.HOSTINGER_USER }}
+      TARGET: ${{ secrets.HOSTINGER_TARGET_PATH }}
+      KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+    steps:
+      - name: Secrets prüfen
+        id: check
+        run: |
+          missing=0
+          for v in HOST PORT USER TARGET KEY; do
+            if [ -z "${!v}" ]; then echo "::warning::Secret HOSTINGER_$v fehlt"; missing=1; fi
+          done
+          if [ "$missing" = "1" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          # Sicherheitsnetz: rsync --delete nur auf ein Theme-Verzeichnis
+          case "$TARGET" in
+            */wp-content/themes/?*) ;;
+            *) echo "::error::HOSTINGER_TARGET_PATH muss auf .../wp-content/themes/<theme> zeigen"; exit 1 ;;
+          esac
+
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.skip != 'true'
+
+      - name: SSH vorbereiten
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$KEY" | tr -d '\r' > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keygen -y -f ~/.ssh/deploy_key > /dev/null || { echo "::error::HOSTINGER_SSH_KEY ist kein gültiger privater Schlüssel"; exit 1; }
+          ssh-keyscan -T 15 -p "$PORT" "$HOST" >> ~/.ssh/known_hosts
+
+      - name: Theme per rsync übertragen
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          ssh -i ~/.ssh/deploy_key -p "$PORT" -o IdentitiesOnly=yes "$USER@$HOST" "mkdir -p '$TARGET'"
+          rsync -az --delete --itemize-changes \
+            -e "ssh -i ~/.ssh/deploy_key -p $PORT -o IdentitiesOnly=yes" \
+            --exclude '.git/' --exclude '.github/' --exclude 'README.md' --exclude 'package.json' --exclude 'node_modules/' \
+            ./ "$USER@$HOST:$TARGET/"
+
+      - name: Aufräumen
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
