@@ -89,8 +89,8 @@ return [
 
 	// ---- Process page ----
 	'pp_meta'           => [
-		'How a website project with Hello Gelb works: call, quote, design approval, build and review, launch and care. Nothing is built before you approve the design.',
-		'So läuft ein Website-Projekt mit Hello Gelb ab: Gespräch, Angebot, Design-Freigabe, Umsetzung und Abnahme, Livegang und Betreuung. Nichts wird gebaut, bevor Sie das Design freigeben.',
+		'How a website project with Isar Creek works: call, quote, design approval, build and review, launch and care. Nothing is built before you approve the design.',
+		'So läuft ein Website-Projekt mit Isar Creek ab: Gespräch, Angebot, Design-Freigabe, Umsetzung und Abnahme, Livegang und Betreuung. Nichts wird gebaut, bevor Sie das Design freigeben.',
 	],
 	'pp_eyebrow'        => [ '03 — Process', '03 — Ablauf' ],
 	'pp_title_a'        => [ 'You approve the design', 'Sie geben das Design frei,' ],
@@ -127,8 +127,8 @@ return [
 
 	// ---- Contact page ----
 	'cp_meta'           => [
-		'Contact Hello Gelb: book a 30-minute call or send a request. English or German, answer within one working day.',
-		'Kontakt zu Hello Gelb: 30-Minuten-Gespräch buchen oder Anfrage senden. Englisch oder Deutsch, Antwort innerhalb eines Werktags.',
+		'Contact Isar Creek: book a 30-minute call or send a request. English or German, answer within one working day.',
+		'Kontakt zu Isar Creek: 30-Minuten-Gespräch buchen oder Anfrage senden. Englisch oder Deutsch, Antwort innerhalb eines Werktags.',
 	],
 	'cp_eyebrow'        => [ '04 — Contact', '04 — Kontakt' ],
 	'cp_lead'           => [ 'Tell me a little about your project. You get an answer within one working day, in English or German.', 'Erzählen Sie mir kurz von Ihrem Projekt. Sie erhalten innerhalb eines Werktags eine Antwort, auf Englisch oder Deutsch.' ],

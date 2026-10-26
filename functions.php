@@ -1,6 +1,6 @@
 <?php
 /**
- * Hello Gelb theme bootstrap.
+ * Isar Creek theme bootstrap.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

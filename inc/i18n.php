@@ -147,7 +147,7 @@ add_action( 'init', function () {
 		return;
 	}
 	foreach ( hg_strings() as $key => [ $en ] ) {
-		pll_register_string( $key, $en, 'Hello Gelb', strlen( $en ) > 70 );
+		pll_register_string( $key, $en, 'Isar Creek', strlen( $en ) > 70 );
 	}
 } );
 

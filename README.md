@@ -1,16 +1,16 @@
-# Hello Gelb
+# Isar Creek
 
-Custom WordPress theme for the Hello Gelb web studio (Bavaria / Dubai). No page builder, no build step. The repository **is** the theme and is deployed to `wp-content/themes/hellogelb` (Hostinger Git, branch `main`).
+Custom WordPress theme for the Isar Creek web studio (Bavaria / Dubai). No page builder, no build step. The repository **is** the theme and is deployed to `wp-content/themes/hellogelb` (Hostinger Git, branch `main`).
 
 Design: variant 6 "Fullscreen Boarding", approved on 2026-10-20.
 
 ## Setup on a fresh WordPress
 
-1. Install and activate the **Hello Gelb** theme (deployed from this repo).
+1. Install and activate the **Isar Creek** theme (deployed from this repo).
 2. Install **Polylang** (free). Add English (default, no URL prefix) and German (`/de/`). Create the language set via the setup wizard.
 3. Settings > Reading: choose a static page as front page, create it in English and German and link both as translations.
 4. Create the pages Imprint / Impressum and Privacy / Datenschutz, then a menu per language and assign it to the location **Footer**.
-5. Languages > Translations: all theme texts appear in the group "Hello Gelb". German defaults ship in `inc/i18n.php`; a saved translation overrides them.
+5. Languages > Translations: all theme texts appear in the group "Isar Creek". German defaults ship in `inc/i18n.php`; a saved translation overrides them.
 6. Under References, add real projects (title, featured image, project link). Until at least one exists, the work section shows a link to philippgebhart.de instead of tiles.
 
 ## Settings in `inc/config.php`
