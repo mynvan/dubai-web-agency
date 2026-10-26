@@ -14,7 +14,7 @@ if ( ! defined( 'HG_BRAND' ) ) {
 
 // Public contact e-mail. Leave empty until it exists; it is then not shown.
 if ( ! defined( 'HG_EMAIL' ) ) {
-	define( 'HG_EMAIL', '' );
+	define( 'HG_EMAIL', 'hello@isarcreek.com' );
 }
 
 // Optional booking link (calendar). Leave empty until one exists.
