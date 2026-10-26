@@ -278,6 +278,39 @@ h1, h2, h3, p { margin: 0; }
 	overflow-wrap: anywhere;
 }
 
+/* ---------- Name: Isar + Creek ---------- */
+
+.name { padding-bottom: 0; }
+.name__title { margin-bottom: 40px; }
+.name__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 40px 72px;
+	align-items: end;
+}
+.name__text {
+	max-width: 560px;
+	font-size: clamp(19px, 1.8vw, 24px);
+	line-height: 1.35;
+	color: var(--soft);
+}
+.name__route {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 10px 20px;
+	align-items: center;
+	justify-items: start;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+.name__code { font-weight: 500; font-size: clamp(24px, 3vw, 40px); letter-spacing: 0; line-height: 1.1; }
+.name__code--dest { background: var(--accent); color: var(--bg); padding: 0 10px; }
+.name__line { width: clamp(40px, 8vw, 96px); height: 2px; background: var(--fg); display: block; }
+.name__cap { font-size: 12px; color: var(--muted); }
+@media (max-width: 860px) {
+	.name__grid { grid-template-columns: minmax(0, 1fr); }
+}
+
 .band {
 	background: var(--band);
 	border-top: 1px solid rgba(242, 240, 234, 0.12);

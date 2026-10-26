@@ -37,6 +37,17 @@ function hg_strings(): array {
 			'MUC → DXB • Websites • Hosting & Betreuung • DSGVO • SEO • EN / DE •',
 		],
 
+		'name_eyebrow'     => [ 'The name', 'Der Name' ],
+		'name_title'       => [ 'Two waters, one route.', 'Zwei Gewässer, eine Route.' ],
+		'name_text'        => [
+			'The Isar runs through Munich. Dubai Creek is where the city\'s trade began. Isar Creek connects the two: German businesses, set up properly in Dubai.',
+			'Die Isar fließt durch München, am Dubai Creek begann der Handel der Stadt. Isar Creek verbindet beide: deutsche Unternehmen, sauber aufgestellt in Dubai.',
+		],
+		'name_from'        => [ 'Isar', 'Isar' ],
+		'name_to'          => [ 'Creek', 'Creek' ],
+		'name_from_cap'    => [ 'Munich', 'München' ],
+		'name_to_cap'      => [ 'Dubai', 'Dubai' ],
+
 		'services_eyebrow' => [ '01 — Services', '01 — Leistungen' ],
 		'services_title'   => [ 'Three things, done properly.', 'Drei Dinge, sauber gemacht.' ],
 		'svc_a_title'      => [ 'Websites', 'Websites' ],
