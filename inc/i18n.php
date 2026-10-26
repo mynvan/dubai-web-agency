@@ -201,3 +201,12 @@ add_filter( 'pre_get_document_title', function ( $title ) {
 	}
 	return $title;
 } );
+
+/**
+ * Inner page titles: "Page – Brand", brand taken from the theme constant.
+ */
+add_filter( 'document_title_parts', function ( array $parts ): array {
+	$parts['site'] = HG_BRAND;
+	unset( $parts['tagline'] );
+	return $parts;
+} );
