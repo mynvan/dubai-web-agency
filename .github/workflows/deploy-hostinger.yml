@@ -45,14 +45,13 @@ jobs:
           printf '%s\n' "$KEY" | tr -d '\r' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keygen -y -f ~/.ssh/deploy_key > /dev/null || { echo "::error::HOSTINGER_SSH_KEY ist kein gültiger privater Schlüssel"; exit 1; }
-          ssh-keyscan -T 15 -p "$PORT" "$HOST" >> ~/.ssh/known_hosts
 
       - name: Theme per rsync übertragen
         if: steps.check.outputs.skip != 'true'
         run: |
-          ssh -i ~/.ssh/deploy_key -p "$PORT" -o IdentitiesOnly=yes "$USER@$HOST" "mkdir -p '$TARGET'"
+          ssh -i ~/.ssh/deploy_key -p "$PORT" -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$USER@$HOST" "mkdir -p '$TARGET'"
           rsync -az --delete --itemize-changes \
-            -e "ssh -i ~/.ssh/deploy_key -p $PORT -o IdentitiesOnly=yes" \
+            -e "ssh -i ~/.ssh/deploy_key -p $PORT -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
             --exclude '.git/' --exclude '.github/' --exclude 'README.md' --exclude 'package.json' --exclude 'node_modules/' \
             ./ "$USER@$HOST:$TARGET/"
 
