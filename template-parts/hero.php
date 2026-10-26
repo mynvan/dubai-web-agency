@@ -2,10 +2,10 @@
 /**
  * Full-screen hero. The header is positioned on top of it via CSS.
  */
-$hero = get_template_directory_uri() . '/assets/img/hero-creek-night.jpg';
+$hero = get_template_directory_uri() . '/assets/img/hero-dubai.jpg';
 ?>
 <section class="hero">
-	<img class="hero__img" src="<?php echo esc_url( $hero ); ?>" width="2400" height="1600" alt="<?php echo esc_attr( hg( 'hero_alt' ) ); ?>" fetchpriority="high" decoding="async">
+	<img class="hero__img" src="<?php echo esc_url( $hero ); ?>" width="2400" height="1560" alt="<?php echo esc_attr( hg( 'hero_alt' ) ); ?>" fetchpriority="high" decoding="async">
 	<div class="hero__shade"></div>
 	<div class="hero__body">
 		<p class="eyebrow mono"><?php hg_e( 'hero_kicker' ); ?></p>
