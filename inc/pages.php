@@ -24,6 +24,8 @@ function hg_template_url( string $slug ): string {
 	$files = [
 		'services' => 'page-templates/services.php',
 		'websites' => 'page-templates/service-websites.php',
+		'hosting'  => 'page-templates/service-hosting.php',
+		'gdpr'     => 'page-templates/service-gdpr-seo.php',
 		'process'  => 'page-templates/process.php',
 		'contact'  => 'page-templates/contact.php',
 	];
