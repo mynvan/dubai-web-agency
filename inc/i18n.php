@@ -191,3 +191,13 @@ function hg_lang_switcher(): void {
 	}
 	echo '<span class="lang-switch">' . implode( ' / ', $parts ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput -- parts are escaped above.
 }
+
+/**
+ * Front page <title>: brand plus the one-line promise, independent of the page's own title.
+ */
+add_filter( 'pre_get_document_title', function ( $title ) {
+	if ( is_front_page() ) {
+		return HG_BRAND . ' — ' . hg( 'hero_lead' );
+	}
+	return $title;
+} );
