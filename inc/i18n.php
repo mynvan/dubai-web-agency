@@ -197,7 +197,7 @@ function hg_lang_switcher(): void {
  */
 add_filter( 'pre_get_document_title', function ( $title ) {
 	if ( is_front_page() ) {
-		return HG_BRAND . ' — ' . hg( 'hero_lead' );
+		return HG_BRAND . ' — ' . rtrim( hg( 'hero_lead' ), '.' );
 	}
 	return $title;
 } );
