@@ -21,10 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<span class="logo__mark" aria-hidden="true"><span></span></span><?php echo esc_html( HG_BRAND ); ?>
 	</a>
 	<nav class="site-nav mono" aria-label="<?php echo esc_attr( hg( 'nav_label' ) ); ?>">
-		<a href="<?php echo esc_url( hg_home_anchor( 'services' ) ); ?>"><?php hg_e( 'nav_services' ); ?></a>
-		<a href="<?php echo esc_url( hg_home_anchor( 'process' ) ); ?>"><?php hg_e( 'nav_process' ); ?></a>
+		<a href="<?php echo esc_url( hg_template_url( 'services' ) ); ?>"><?php hg_e( 'nav_services' ); ?></a>
+		<a href="<?php echo esc_url( hg_template_url( 'process' ) ); ?>"><?php hg_e( 'nav_process' ); ?></a>
 		<a href="<?php echo esc_url( hg_home_anchor( 'work' ) ); ?>"><?php hg_e( 'nav_work' ); ?></a>
-		<a href="<?php echo esc_url( hg_home_anchor( 'contact' ) ); ?>"><?php hg_e( 'nav_contact' ); ?></a>
+		<a href="<?php echo esc_url( hg_template_url( 'contact' ) ); ?>"><?php hg_e( 'nav_contact' ); ?></a>
 	</nav>
 	<div class="mono"><?php hg_lang_switcher(); ?></div>
 </header>

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function hg_strings(): array {
-	return [
+	$base = [
 		'meta_description' => [
 			'Web studio from Bavaria for German-speaking businesses in the UAE. Websites, hosting and care, GDPR and SEO. English and German, one contact person, clear scope.',
 			'Web-Studio aus Bayern für deutschsprachige Unternehmen in den VAE. Websites, Hosting und Betreuung, DSGVO und SEO. Englisch und Deutsch, ein Ansprechpartner, klarer Umfang.',
@@ -92,6 +92,8 @@ function hg_strings(): array {
 		'404_text'         => [ 'This gate does not exist. Back to the start?', 'Dieses Gate gibt es nicht. Zurück zum Start?' ],
 		'404_back'         => [ 'Back to home', 'Zur Startseite' ],
 	];
+
+	return array_merge( $base, require get_template_directory() . '/inc/strings-pages.php' );
 }
 
 /**
@@ -130,6 +132,13 @@ function hg( string $key ): string {
 
 function hg_e( string $key ): void {
 	echo esc_html( hg( $key ) );
+}
+
+/**
+ * Translated string that may contain <strong>. Output is filtered.
+ */
+function hg_html( string $key ): void {
+	echo wp_kses( hg( $key ), [ 'strong' => [] ] );
 }
 
 // Register all strings with Polylang so they show up under Languages > Translations.

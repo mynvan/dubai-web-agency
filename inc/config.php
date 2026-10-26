@@ -37,7 +37,7 @@ function hg_cta_url(): string {
 	if ( HG_EMAIL ) {
 		return 'mailto:' . antispambot( HG_EMAIL );
 	}
-	return hg_home_anchor( 'contact' );
+	return hg_template_url( 'contact' );
 }
 
 /**

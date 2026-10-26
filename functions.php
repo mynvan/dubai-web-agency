@@ -7,11 +7,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HG_VERSION', '0.1.0' );
+define( 'HG_VERSION', '0.2.0' );
 
 require_once get_template_directory() . '/inc/config.php';
 require_once get_template_directory() . '/inc/i18n.php';
 require_once get_template_directory() . '/inc/references.php';
+require_once get_template_directory() . '/inc/pages.php';
 
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'title-tag' );
@@ -48,3 +49,16 @@ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 remove_action( 'wp_head', 'wp_generator' );
+
+// Inner pages with a hero image: let the header sit on top of it, like on the front page.
+add_filter( 'body_class', function ( array $classes ): array {
+	if ( is_page_template( [
+		'page-templates/services.php',
+		'page-templates/service-websites.php',
+		'page-templates/process.php',
+		'page-templates/contact.php',
+	] ) ) {
+		$classes[] = 'has-hero';
+	}
+	return $classes;
+} );
