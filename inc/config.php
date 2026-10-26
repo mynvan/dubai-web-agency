@@ -47,3 +47,11 @@ function hg_home_anchor( string $id ): string {
 	$home = function_exists( 'pll_home_url' ) ? pll_home_url() : home_url( '/' );
 	return trailingslashit( $home ) . '#' . $id;
 }
+
+/**
+ * Recipient of the contact form: the public address if set, otherwise the
+ * WordPress admin address (so the form works before a public address exists).
+ */
+function hg_form_to(): string {
+	return HG_EMAIL ? HG_EMAIL : (string) get_option( 'admin_email' );
+}

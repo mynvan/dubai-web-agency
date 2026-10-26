@@ -17,7 +17,7 @@ hg_page_hero( [
 $sent = isset( $_GET['hg_sent'] ) ? sanitize_key( wp_unslash( $_GET['hg_sent'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
 ?>
 <section id="form" class="contact-page">
-	<?php if ( HG_EMAIL ) : ?>
+	<?php if ( hg_form_to() ) : ?>
 	<form class="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 		<p class="mono contact-form__eyebrow"><?php hg_e( 'cp_form_eyebrow' ); ?></p>
 		<?php if ( '1' === $sent ) : ?>
@@ -48,7 +48,7 @@ $sent = isset( $_GET['hg_sent'] ) ? sanitize_key( wp_unslash( $_GET['hg_sent'] )
 	</form>
 	<?php endif; ?>
 
-	<aside class="pass-stub<?php echo HG_EMAIL ? '' : ' pass-stub--solo'; ?>">
+	<aside class="pass-stub<?php echo hg_form_to() ? '' : ' pass-stub--solo'; ?>">
 		<p class="pass__route" aria-hidden="true">MUC <span>&rarr;</span> DXB</p>
 		<dl class="pass__facts mono">
 			<div><dt><?php hg_e( 'pass_passenger' ); ?></dt><dd><?php hg_e( 'pass_you' ); ?></dd></div>

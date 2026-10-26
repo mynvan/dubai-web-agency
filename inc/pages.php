@@ -212,14 +212,14 @@ function hg_handle_contact(): void {
 	$message = isset( $_POST['hg_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['hg_message'] ) ) : '';
 	$consent = ! empty( $_POST['hg_consent'] );
 
-	if ( ! $ok || ! HG_EMAIL || '' === $name || ! is_email( $email ) || '' === $message || ! $consent ) {
+	if ( ! $ok || ! hg_form_to() || '' === $name || ! is_email( $email ) || '' === $message || ! $consent ) {
 		wp_safe_redirect( add_query_arg( 'hg_sent', '0', $back ) . '#form' );
 		exit;
 	}
 
 	$body  = "Name: {$name}\nCompany: {$company}\nE-mail: {$email}\nLanguage: {$lang}\n\n{$message}\n";
 	$sent  = wp_mail(
-		HG_EMAIL,
+		hg_form_to(),
 		'[' . HG_BRAND . '] ' . $name,
 		$body,
 		[ 'Reply-To: ' . $name . ' <' . $email . '>' ]
