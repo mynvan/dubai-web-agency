@@ -281,22 +281,30 @@ h1, h2, h3, p { margin: 0; }
 /* ---------- Name: Isar + Creek ---------- */
 
 .name { padding-bottom: 0; }
-.name__title { margin-bottom: 40px; }
+.name__route {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 10px clamp(16px, 3vw, 40px);
+	margin-bottom: 56px;
+}
+.name__code {
+	font-size: clamp(44px, 12vw, 190px);
+	font-weight: 900;
+	line-height: 0.9;
+	letter-spacing: -0.02em;
+}
+.name__code--dest { background: var(--accent); color: var(--bg); padding: 0 0.08em; }
+.name__line { height: 3px; background: var(--fg); min-width: 24px; }
+.name__cap { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 .name__grid {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
-	gap: 40px 72px;
+	gap: 24px 72px;
 	align-items: end;
 }
-.name__text {
-	max-width: 560px;
-	font-size: clamp(19px, 1.8vw, 24px);
-	line-height: 1.35;
-	color: var(--soft);
-}
-.name__fig { margin: 0; }
-.name__img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
-.name__credit { margin-top: 10px; font-size: 11px; color: var(--muted); }
+.name__title { font-size: clamp(24px, 3vw, 40px); font-weight: 700; line-height: 1.05; }
+.name__text { font-size: clamp(19px, 1.8vw, 24px); line-height: 1.35; color: var(--soft); }
 @media (max-width: 860px) {
 	.name__grid { grid-template-columns: minmax(0, 1fr); }
 }

@@ -29,8 +29,8 @@ function hg_strings(): array {
 		'hero_mark'        => [ 'Delivered as agreed.', 'Geliefert wie vereinbart.' ],
 		'hero_cta'         => [ 'Book a 30-minute call', '30-Minuten-Gespräch buchen' ],
 		'hero_refs'        => [ 'See references', 'Referenzen ansehen' ],
-		'hero_alt'         => [ 'Dubai skyline with the Burj Khalifa under storm clouds', 'Skyline von Dubai mit dem Burj Khalifa unter Gewitterwolken' ],
-		'hero_credit'      => [ 'Photo: Ahmed Aldaie / Unsplash', 'Foto: Ahmed Aldaie / Unsplash' ],
+		'hero_alt'         => [ 'Burj Khalifa and the Dubai skyline at night, seen across the water', 'Burj Khalifa und die Skyline von Dubai bei Nacht, über das Wasser gesehen' ],
+		'hero_credit'      => [ 'Photo: Ahmed Galal / Unsplash', 'Foto: Ahmed Galal / Unsplash' ],
 
 		'ticker'           => [
 			'MUC → DXB • Websites • Hosting & care • GDPR • SEO • EN / DE •',
