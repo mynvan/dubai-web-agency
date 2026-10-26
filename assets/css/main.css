@@ -560,13 +560,14 @@ h1, h2, h3, p { margin: 0; }
 	padding: 160px var(--pad) clamp(40px, 6vw, 72px);
 }
 .page-hero__title {
-	max-width: 1100px;
+	max-width: 1240px;
 	font-weight: 900;
-	font-size: clamp(40px, 7.4vw, 104px);
+	font-size: clamp(36px, 6.2vw, 92px);
 	line-height: 0.95;
 	letter-spacing: -0.045em;
 	text-transform: uppercase;
-	overflow-wrap: anywhere;
+	overflow-wrap: break-word;
+	hyphens: manual;
 }
 .page-hero__lead { max-width: 720px; font-size: clamp(18px, 1.8vw, 24px); line-height: 1.45; color: var(--soft); }
 .crumb { font-size: 13px; letter-spacing: 0.06em; color: var(--muted); }
@@ -648,7 +649,6 @@ h1, h2, h3, p { margin: 0; }
 	display: grid;
 	grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
 	gap: 32px 56px;
-	border-bottom: 1px solid var(--line);
 }
 .split--band { max-width: none; background: var(--band); padding-left: max(var(--pad), calc((100vw - 1400px) / 2 + var(--pad))); padding-right: max(var(--pad), calc((100vw - 1400px) / 2 + var(--pad))); }
 .split__head { display: flex; flex-direction: column; gap: 16px; }
