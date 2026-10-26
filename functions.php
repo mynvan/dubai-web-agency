@@ -64,3 +64,18 @@ add_filter( 'body_class', function ( array $classes ): array {
 	}
 	return $classes;
 } );
+
+/**
+ * One public address: requests on any other host (e.g. the old dev subdomain)
+ * are redirected to the canonical site URL. wp-admin and login are left alone.
+ */
+add_action( 'template_redirect', function () {
+	$canonical = wp_parse_url( home_url(), PHP_URL_HOST );
+	$host      = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	if ( ! $canonical || ! $host || $host === $canonical || is_admin() || is_customize_preview() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+		return;
+	}
+	$uri = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '/'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+	wp_redirect( esc_url_raw( home_url( $uri ) ), 301 ); // phpcs:ignore WordPress.Security.SafeRedirect
+	exit;
+} );
