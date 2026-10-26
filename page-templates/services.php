@@ -16,8 +16,8 @@ hg_page_hero( [
 
 $services = [
 	'a' => [ 'svc_a_title', 'svc_a_text', [ 'svc_a1', 'svc_a2', 'svc_a3', 'svc_a4' ], hg_template_url( 'websites' ) ],
-	'b' => [ 'svc_b_title', 'svc_b_text', [ 'svc_b1', 'svc_b2', 'svc_b3', 'svc_b4' ], '' ],
-	'c' => [ 'svc_c_title', 'svc_c_text', [ 'svc_c1', 'svc_c2', 'svc_c3', 'svc_c4' ], '' ],
+	'b' => [ 'svc_b_title', 'svc_b_text', [ 'svc_b1', 'svc_b2', 'svc_b3', 'svc_b4' ], hg_template_url( 'hosting' ) ],
+	'c' => [ 'svc_c_title', 'svc_c_text', [ 'svc_c1', 'svc_c2', 'svc_c3', 'svc_c4' ], hg_template_url( 'gdpr' ) ],
 ];
 ?>
 <div class="service-list">

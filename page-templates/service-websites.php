@@ -55,14 +55,14 @@ hg_page_hero( [
 </section>
 
 <section class="next-links">
-	<div class="next-link">
+	<a class="next-link" href="<?php echo esc_url( hg_template_url( 'hosting' ) ); ?>">
 		<span class="mono"><?php hg_e( 'wd_next_label' ); ?></span>
-		<strong><?php hg_e( 'wd_next_b' ); ?></strong>
-	</div>
-	<div class="next-link">
+		<strong><?php hg_e( 'wd_next_b' ); ?> &rarr;</strong>
+	</a>
+	<a class="next-link" href="<?php echo esc_url( hg_template_url( 'gdpr' ) ); ?>">
 		<span class="mono"><?php hg_e( 'wd_next_label' ); ?></span>
-		<strong><?php hg_e( 'wd_next_c' ); ?></strong>
-	</div>
+		<strong><?php hg_e( 'wd_next_c' ); ?> &rarr;</strong>
+	</a>
 	<a class="next-link next-link--accent" href="<?php echo esc_url( hg_template_url( 'process' ) ); ?>">
 		<span class="mono"><?php hg_e( 'wd_next_proc_l' ); ?></span>
 		<strong><?php hg_e( 'wd_next_proc' ); ?> &rarr;</strong>

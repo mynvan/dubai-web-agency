@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * URL of the page that uses a page template, in the current language.
  * Falls back to the matching front-page anchor, so menus never break.
  *
- * @param string $slug One of: services, websites, process, contact.
+ * @param string $slug One of: services, websites, hosting, gdpr, process, contact.
  */
 function hg_template_url( string $slug ): string {
 	static $cache = [];
@@ -51,7 +51,7 @@ function hg_template_url( string $slug ): string {
 		}
 	}
 	if ( ! $url ) {
-		$anchors = [ 'services' => 'services', 'websites' => 'services', 'process' => 'process', 'contact' => 'contact' ];
+		$anchors = [ 'services' => 'services', 'websites' => 'services', 'hosting' => 'services', 'gdpr' => 'services', 'process' => 'process', 'contact' => 'contact' ];
 		$url     = hg_home_anchor( $anchors[ $slug ] ?? 'contact' );
 	}
 	$cache[ $key ] = $url;
@@ -86,6 +86,79 @@ function hg_page_hero( array $args ): void {
 		<?php endif; ?>
 	</div>
 	<p class="hero__credit mono"><?php hg_e( $args['credit'] ); ?></p>
+</section>
+	<?php
+}
+
+/**
+ * Complete detail page of a service. Texts come from the keys with the given prefix.
+ *
+ * @param string $p      Key prefix (hd, gd).
+ * @param string $image  Hero file in assets/img.
+ * @param string $crumb  String key of the service title (breadcrumb).
+ * @param array  $others Two other services as [ string key of title, template slug ] each.
+ */
+function hg_service_detail( string $p, string $image, string $crumb, array $others ): void {
+	hg_set_page_meta( "{$p}_meta" );
+	hg_page_hero( [
+		'image'      => $image,
+		'alt'        => "{$p}_hero_alt",
+		'credit'     => "{$p}_hero_credit",
+		'crumb'      => hg( $crumb ),
+		'title_html' => esc_html( hg( "{$p}_title_a" ) ) . ' <span class="accent">' . esc_html( hg( "{$p}_title_b" ) ) . '</span>',
+		'lead'       => "{$p}_lead",
+		'cta'        => true,
+	] );
+	?>
+<section class="split">
+	<div class="split__head">
+		<p class="eyebrow mono"><?php hg_e( "{$p}_get_eyebrow" ); ?></p>
+		<h2 class="split__title"><?php hg_e( "{$p}_get_title" ); ?></h2>
+	</div>
+	<ol class="numbered">
+		<?php for ( $i = 1; $i <= 5; $i++ ) : ?>
+			<li><span class="numbered__n mono" aria-hidden="true">0<?php echo (int) $i; ?></span><span><?php hg_html( "{$p}_get_{$i}" ); ?></span></li>
+		<?php endfor; ?>
+	</ol>
+</section>
+
+<section class="split split--band">
+	<div class="split__head">
+		<p class="eyebrow mono"><?php hg_e( "{$p}_for_eyebrow" ); ?></p>
+		<h2 class="split__title"><?php hg_e( "{$p}_for_title" ); ?></h2>
+	</div>
+	<div class="split__body">
+		<p><?php hg_e( "{$p}_for_1" ); ?></p>
+		<p><?php hg_e( "{$p}_for_2" ); ?></p>
+	</div>
+</section>
+
+<section class="split">
+	<div class="split__head">
+		<p class="eyebrow mono"><?php hg_e( "{$p}_faq_eyebrow" ); ?></p>
+		<h2 class="split__title"><?php hg_e( "{$p}_faq_title" ); ?></h2>
+	</div>
+	<div class="faq">
+		<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
+			<div class="faq__item">
+				<h3><?php hg_e( "{$p}_q{$i}" ); ?></h3>
+				<p><?php hg_e( "{$p}_a{$i}" ); ?></p>
+			</div>
+		<?php endfor; ?>
+	</div>
+</section>
+
+<section class="next-links">
+	<?php foreach ( $others as [ $title_key, $slug ] ) : ?>
+		<a class="next-link" href="<?php echo esc_url( hg_template_url( $slug ) ); ?>">
+			<span class="mono"><?php hg_e( 'dt_next_label' ); ?></span>
+			<strong><?php hg_e( $title_key ); ?> &rarr;</strong>
+		</a>
+	<?php endforeach; ?>
+	<a class="next-link next-link--accent" href="<?php echo esc_url( hg_template_url( 'process' ) ); ?>">
+		<span class="mono"><?php hg_e( 'wd_next_proc_l' ); ?></span>
+		<strong><?php hg_e( 'wd_next_proc' ); ?> &rarr;</strong>
+	</a>
 </section>
 	<?php
 }
