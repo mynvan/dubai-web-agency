@@ -43,8 +43,10 @@ function hg_strings(): array {
 			'The Isar runs through Munich. Dubai Creek is where the city\'s trade began. Isar Creek connects the two: German businesses, set up properly in Dubai.',
 			'Die Isar fließt durch München, am Dubai Creek begann der Handel der Stadt. Isar Creek verbindet beide: deutsche Unternehmen, sauber aufgestellt in Dubai.',
 		],
-		'name_alt'         => [ 'Dubai skyline with the Burj Khalifa across the water at sunset', 'Skyline von Dubai mit dem Burj Khalifa über dem Wasser bei Sonnenuntergang' ],
-		'name_credit'      => [ 'Photo: Karen Dalton / Unsplash', 'Foto: Karen Dalton / Unsplash' ],
+		'name_from'        => [ 'ISAR', 'ISAR' ],
+		'name_to'          => [ 'CREEK', 'CREEK' ],
+		'name_from_cap'    => [ 'Munich', 'München' ],
+		'name_to_cap'      => [ 'Dubai', 'Dubai' ],
 
 		'services_eyebrow' => [ '01 — Services', '01 — Leistungen' ],
 		'services_title'   => [ 'Three things, done properly.', 'Drei Dinge, sauber gemacht.' ],
