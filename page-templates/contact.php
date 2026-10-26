@@ -6,7 +6,7 @@ get_header();
 hg_set_page_meta( 'cp_meta' );
 
 hg_page_hero( [
-	'image'      => 'hero-contact.jpg',
+	'image'      => 'hero-contact-creek.jpg',
 	'alt'        => 'cp_hero_alt',
 	'credit'     => 'cp_hero_credit',
 	'eyebrow'    => 'cp_eyebrow',
