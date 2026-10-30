@@ -515,6 +515,8 @@ h1, h2, h3, p { margin: 0; }
 	margin-bottom: 32px;
 	overflow-wrap: anywhere;
 }
+/* Legal texts (e.g. eRecht24) bring their own H1; the page title above already is one. */
+.prose h1 { display: none; }
 .prose { color: var(--soft); overflow-wrap: anywhere; }
 .prose a { color: var(--accent); }
 .prose h2, .prose h3 { color: var(--fg); margin: 2em 0 0.5em; }
