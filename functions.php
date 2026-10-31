@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HG_VERSION', '0.3.5' );
+define( 'HG_VERSION', '0.3.6' );
 
 require_once get_template_directory() . '/inc/config.php';
 require_once get_template_directory() . '/inc/i18n.php';
@@ -95,3 +95,14 @@ add_action( 'template_redirect', function () {
 		nocache_headers();
 	}
 }, 5 );
+
+/**
+ * Sitemap: pages only. No author archives (leak usernames), no empty post/category lists.
+ */
+add_filter( 'wp_sitemaps_add_provider', function ( $provider, $name ) {
+	return in_array( $name, [ 'users', 'taxonomies' ], true ) ? false : $provider;
+}, 10, 2 );
+add_filter( 'wp_sitemaps_post_types', function ( array $types ): array {
+	unset( $types['post'] );
+	return $types;
+} );
