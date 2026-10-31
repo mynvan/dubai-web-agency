@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'wp_head', function () {
 	if ( HG_CCM19_SRC ) {
-		echo '<script src="' . esc_attr( HG_CCM19_SRC ) . '" referrerpolicy="origin"></script>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources
+		echo '<script src="' . esc_attr( HG_CCM19_SRC ) . '" referrerpolicy="origin" data-no-optimize="1" data-cfasync="false"></script>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources
 	}
 }, 1 );
 
