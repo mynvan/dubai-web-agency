@@ -22,6 +22,11 @@ if ( ! defined( 'HG_BOOKING_URL' ) ) {
 	define( 'HG_BOOKING_URL', '' );
 }
 
+// Google Analytics 4 measurement ID. Empty = no tracking code at all.
+if ( ! defined( 'HG_GA_ID' ) ) {
+	define( 'HG_GA_ID', 'G-DGFE8WXR9V' );
+}
+
 // Link to the German main site with the real references.
 if ( ! defined( 'HG_REFERENCES_URL' ) ) {
 	define( 'HG_REFERENCES_URL', 'https://philippgebhart.de/' );

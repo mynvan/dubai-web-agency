@@ -13,6 +13,7 @@ require_once get_template_directory() . '/inc/config.php';
 require_once get_template_directory() . '/inc/i18n.php';
 require_once get_template_directory() . '/inc/references.php';
 require_once get_template_directory() . '/inc/pages.php';
+require_once get_template_directory() . '/inc/analytics.php';
 
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'title-tag' );
