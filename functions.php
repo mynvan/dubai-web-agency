@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HG_VERSION', '0.3.3' );
+define( 'HG_VERSION', '0.3.4' );
 
 require_once get_template_directory() . '/inc/config.php';
 require_once get_template_directory() . '/inc/i18n.php';
@@ -80,3 +80,18 @@ add_action( 'template_redirect', function () {
 	wp_redirect( esc_url_raw( home_url( $uri ) ), 301 ); // phpcs:ignore WordPress.Security.SafeRedirect
 	exit;
 } );
+
+/**
+ * The contact page carries a nonce and a time token, so it must never come
+ * from a page cache (LiteSpeed would serve an expired nonce -> form fails).
+ */
+add_action( 'template_redirect', function () {
+	if ( is_page_template( 'page-templates/contact.php' ) ) {
+		if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+			define( 'DONOTCACHEPAGE', true );
+		}
+		do_action( 'litespeed_control_set_nocache', 'contact form nonce' );
+		header( 'X-LiteSpeed-Cache-Control: no-cache' );
+		nocache_headers();
+	}
+}, 5 );
