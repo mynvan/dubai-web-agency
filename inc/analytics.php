@@ -2,13 +2,9 @@
 /**
  * Consent manager (CCM19) and Google Analytics 4.
  *
- * CCM19 is printed first in <head>. The GA4 tag is printed in CCM19's script
- * loader format (type="text/x-ccm-loader"), so the browser does NOT run it until
- * the visitor has accepted the "Statistics" group. If CCM19 is missing or the
- * group is not accepted, nothing is sent to Google.
- *
- * In the CCM19 backend, the Google Analytics integration needs the loader
- * group "statistics" (field "Gruppe fuer den Script-Loader").
+ * CCM19 is printed first in <head> so it can block the Google tag until the
+ * visitor accepts "Google Analytics 4" (service from the CCM19 catalog). The
+ * GA4 tag itself is the standard gtag.js snippet.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,9 +22,9 @@ add_action( 'wp_head', function () {
 		return;
 	}
 	?>
-<!-- Google tag (gtag.js), released by CCM19 after consent -->
-<script type="text/x-ccm-loader" data-ccm-loader-group="statistics" data-ccm-loader-src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( HG_GA_ID ); ?>"></script>
-<script type="text/x-ccm-loader" data-ccm-loader-group="statistics">
+<!-- Google tag (gtag.js) -->
+<script async data-no-optimize="1" data-cfasync="false" src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( HG_GA_ID ); ?>"></script>
+<script data-no-optimize="1" data-cfasync="false">
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
