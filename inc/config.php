@@ -22,6 +22,11 @@ if ( ! defined( 'HG_BOOKING_URL' ) ) {
 	define( 'HG_BOOKING_URL', '' );
 }
 
+// CCM19 consent manager script (cookie banner). Empty = no banner.
+if ( ! defined( 'HG_CCM19_SRC' ) ) {
+	define( 'HG_CCM19_SRC', 'https://cloud.ccm19.de/app.js?apiKey=e5a1491d732cc9d1c224c925a5b1ec58eef51455a8c834a6&domain=6ae1ad5f02b42b9fdd060bd2' );
+}
+
 // Google Analytics 4 measurement ID. Empty = no tracking code at all.
 if ( ! defined( 'HG_GA_ID' ) ) {
 	define( 'HG_GA_ID', 'G-DGFE8WXR9V' );

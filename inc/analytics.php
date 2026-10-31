@@ -1,14 +1,14 @@
 <?php
 /**
- * Google Analytics 4 (gtag.js).
+ * Consent manager (CCM19) and Google Analytics 4.
  *
- * The tag is printed ONLY when consent exists. Until a consent tool (CCM19) is
- * set up, nothing is loaded and no data goes to Google. To switch it on, make
- * the filter return true once the visitor has agreed to statistics, e.g.:
+ * CCM19 is printed first in <head>. The GA4 tag is printed in CCM19's script
+ * loader format (type="text/x-ccm-loader"), so the browser does NOT run it until
+ * the visitor has accepted the "Statistics" group. If CCM19 is missing or the
+ * group is not accepted, nothing is sent to Google.
  *
- *   add_filter( 'hg_analytics_consent', fn() => ! empty( $_COOKIE['your_consent_cookie'] ) );
- *
- * or let the consent tool load the script itself and return false here.
+ * In the CCM19 backend, the Google Analytics integration needs the loader
+ * group "statistics" (field "Gruppe fuer den Script-Loader").
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,14 +16,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'wp_head', function () {
-	if ( ! HG_GA_ID || is_user_logged_in() || ! apply_filters( 'hg_analytics_consent', false ) ) {
+	if ( HG_CCM19_SRC ) {
+		echo '<script src="' . esc_attr( HG_CCM19_SRC ) . '" referrerpolicy="origin"></script>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources
+	}
+}, 1 );
+
+add_action( 'wp_head', function () {
+	if ( ! HG_GA_ID || is_user_logged_in() ) {
 		return;
 	}
-	$id = esc_attr( HG_GA_ID );
 	?>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $id; ?>"></script>
-<script>
+<!-- Google tag (gtag.js), released by CCM19 after consent -->
+<script type="text/x-ccm-loader" data-ccm-loader-group="statistics" data-ccm-loader-src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( HG_GA_ID ); ?>"></script>
+<script type="text/x-ccm-loader" data-ccm-loader-group="statistics">
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
