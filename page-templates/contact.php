@@ -31,19 +31,20 @@ $sent = isset( $_GET['hg_sent'] ) ? sanitize_key( wp_unslash( $_GET['hg_sent'] )
 		<?php wp_nonce_field( 'hg_contact', 'hg_nonce' ); ?>
 		<div class="contact-form__hp" aria-hidden="true"><label>Website<input type="text" name="hg_website" tabindex="-1" autocomplete="off"></label></div>
 		<div class="field-row">
-			<label class="field mono"><?php hg_e( 'cp_name' ); ?><input type="text" name="hg_name" required autocomplete="name"></label>
+			<label class="field mono"><span><?php hg_e( 'cp_name' ); ?> <span class="req" aria-hidden="true">*</span></span><input type="text" name="hg_name" required autocomplete="name"></label>
 			<label class="field mono"><?php hg_e( 'cp_company' ); ?><input type="text" name="hg_company" autocomplete="organization"></label>
 		</div>
-		<label class="field mono"><?php hg_e( 'cp_email' ); ?><input type="email" name="hg_email" required autocomplete="email"></label>
+		<label class="field mono"><span><?php hg_e( 'cp_email' ); ?> <span class="req" aria-hidden="true">*</span></span><input type="email" name="hg_email" required autocomplete="email"></label>
 		<label class="field mono"><?php hg_e( 'cp_language' ); ?>
 			<select name="hg_lang"><option>English</option><option<?php echo 'de' === hg_lang() ? ' selected' : ''; ?>>Deutsch</option></select>
 		</label>
-		<label class="field mono"><?php hg_e( 'cp_message' ); ?><textarea name="hg_message" rows="5" required></textarea></label>
-		<label class="consent"><input type="checkbox" name="hg_consent" value="1" required> <span><?php hg_e( 'cp_consent' ); ?><?php
+		<label class="field mono"><span><?php hg_e( 'cp_message' ); ?> <span class="req" aria-hidden="true">*</span></span><textarea name="hg_message" rows="5" required></textarea></label>
+		<label class="consent"><input type="checkbox" name="hg_consent" value="1" required> <span><?php hg_e( 'cp_consent' ); ?> <span class="req" aria-hidden="true">*</span><?php
 			$privacy = get_privacy_policy_url();
 			if ( $privacy ) :
 				?> <a href="<?php echo esc_url( $privacy ); ?>"><?php hg_e( 'cp_privacy' ); ?></a><?php
 			endif; ?></span></label>
+		<p class="mono form-note"><span class="req" aria-hidden="true">*</span> <?php hg_e( 'cp_required' ); ?></p>
 		<button class="btn btn--dark mono" type="submit"><?php hg_e( 'cp_send' ); ?> &rarr;</button>
 	</form>
 	<?php endif; ?>

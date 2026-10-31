@@ -142,6 +142,7 @@ return [
 	'cp_message'        => [ 'Your project', 'Ihr Projekt' ],
 	'cp_consent'        => [ 'I agree that my details are used to answer my request.', 'Ich bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage verwendet werden.' ],
 	'cp_privacy'        => [ 'Privacy policy', 'Datenschutzerklärung' ],
+	'cp_required'       => [ 'Required field', 'Pflichtfeld' ],
 	'cp_send'           => [ 'Send request', 'Anfrage senden' ],
 	'cp_sent'           => [ 'Thank you. Your request has arrived, you will hear from me within one working day.', 'Vielen Dank. Ihre Anfrage ist angekommen, Sie hören innerhalb eines Werktags von mir.' ],
 	'cp_error'          => [ 'The request could not be sent. Please check your details and try again.', 'Die Anfrage konnte nicht gesendet werden. Bitte prüfen Sie Ihre Angaben und versuchen Sie es erneut.' ],
