@@ -28,6 +28,7 @@ function hg_template_url( string $slug ): string {
 		'gdpr'     => 'page-templates/service-gdpr-seo.php',
 		'process'  => 'page-templates/process.php',
 		'contact'  => 'page-templates/contact.php',
+		'work'     => 'page-templates/work.php',
 		'cs'       => 'page-templates/case-cleansolution.php',
 		'ic'       => 'page-templates/case-isarcreek.php',
 	];
@@ -55,7 +56,7 @@ function hg_template_url( string $slug ): string {
 		}
 	}
 	if ( ! $url ) {
-		$anchors = [ 'services' => 'services', 'websites' => 'services', 'hosting' => 'services', 'gdpr' => 'services', 'process' => 'process', 'contact' => 'contact', 'cs' => 'work', 'ic' => 'work' ];
+		$anchors = [ 'services' => 'services', 'websites' => 'services', 'hosting' => 'services', 'gdpr' => 'services', 'process' => 'process', 'contact' => 'contact', 'work' => 'work', 'cs' => 'work', 'ic' => 'work' ];
 		$url     = hg_home_anchor( $anchors[ $slug ] ?? 'contact' );
 	}
 	$cache[ $key ] = $url;
@@ -183,7 +184,7 @@ function hg_case_study( string $p, string $other, string $image, string $hero, s
 		'credit'     => "{$hero}_hero_credit",
 		'crumb'      => hg( "{$p}_crumb" ),
 		'crumb_home' => 'nav_work',
-		'crumb_url'  => hg_home_anchor( 'work' ),
+		'crumb_url'  => hg_template_url( 'work' ),
 		'title_html' => esc_html( hg( "{$p}_title_a" ) ) . ' <span class="accent">' . esc_html( hg( "{$p}_title_b" ) ) . '</span>',
 		'lead'       => "{$p}_lead",
 		'cta'        => true,

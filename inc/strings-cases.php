@@ -23,6 +23,23 @@ return [
 	'case_shot_alt'    => [ 'Screenshot of the cleansolution website', 'Screenshot der Website von cleansolution' ],
 	'work_tile_more'   => [ 'Read the case study', 'Case Study lesen' ],
 
+	// ---- Work overview ----
+	'wk_title'         => [ 'Work: Website Case Studies', 'Referenzen: Website-Case-Studies' ],
+	'wk_meta'          => [
+		'Two case studies from Isar Creek: a website cared for since 2018 with a page builder, and this website, built as a custom theme without one.',
+		'Zwei Case Studies von Isar Creek: eine seit 2018 betreute Website mit Page-Builder und diese Website, gebaut als eigenes Theme ohne Page-Builder.',
+	],
+	'wk_lead'          => [
+		'Two projects, two routes: a long-running website with a page builder, and this website as a custom theme without one.',
+		'Zwei Projekte, zwei Wege: eine langjährig betreute Website mit Page-Builder und diese Website als eigenes Theme ohne Page-Builder.',
+	],
+	'wk_cs_1'          => [ 'Rebuild and move in 2018', 'Neuaufbau und Umzug 2018' ],
+	'wk_cs_2'          => [ 'Care and development since then', 'Betreuung und Weiterentwicklung seitdem' ],
+	'wk_cs_3'          => [ 'Elementor Pro and JetEngine', 'Elementor Pro und JetEngine' ],
+	'wk_ic_1'          => [ 'Custom theme, no page builder', 'Eigenes Theme, kein Page-Builder' ],
+	'wk_ic_2'          => [ 'English and German with Polylang', 'Englisch und Deutsch mit Polylang' ],
+	'wk_ic_3'          => [ 'Consent, structured data, deployment', 'Consent, strukturierte Daten, Deployment' ],
+
 	// ---- cleansolution ----
 	'cs_crumb'         => [ 'cleansolution GmbH', 'cleansolution GmbH' ],
 	'cs_title'         => [ 'Case Study: Website Care Since 2018, cleansolution', 'Case Study: Website-Betreuung seit 2018, cleansolution' ],

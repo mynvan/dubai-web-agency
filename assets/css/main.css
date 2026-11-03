@@ -833,3 +833,6 @@ h1, h2, h3, p { margin: 0; }
 	.page-hero__body { padding-top: 140px; }
 	.page-hero .hero__credit { top: auto; bottom: 8px; right: var(--pad); }
 }
+
+/* Work overview: link to the long list of references */
+.work-more { max-width: 1400px; margin: 0 auto; padding: 56px var(--pad) 8px; }
