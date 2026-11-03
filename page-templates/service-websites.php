@@ -3,7 +3,6 @@
  * Template Name: Service: Websites
  */
 get_header();
-hg_set_page_meta( 'wd_meta' );
 
 hg_page_hero( [
 	'image'      => 'hero-websites.jpg',

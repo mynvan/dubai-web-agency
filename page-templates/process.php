@@ -3,7 +3,6 @@
  * Template Name: Process
  */
 get_header();
-hg_set_page_meta( 'pp_meta' );
 
 hg_page_hero( [
 	'image'      => 'hero-process.jpg',

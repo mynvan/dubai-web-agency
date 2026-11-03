@@ -101,7 +101,6 @@ function hg_page_hero( array $args ): void {
  * @param array  $others Two other services as [ string key of title, template slug ] each.
  */
 function hg_service_detail( string $p, string $image, string $crumb, array $others ): void {
-	hg_set_page_meta( "{$p}_meta" );
 	hg_page_hero( [
 		'image'      => $image,
 		'alt'        => "{$p}_hero_alt",
@@ -175,15 +174,6 @@ function hg_cta_band( string $title_key ): void {
 	<a class="btn btn--dark" href="<?php echo esc_url( hg_cta_url() ); ?>"><?php hg_e( 'hero_cta' ); ?> &rarr;</a>
 </section>
 	<?php
-}
-
-/**
- * Meta description for inner pages, set by the page template.
- */
-function hg_set_page_meta( string $key ): void {
-	add_action( 'wp_head', function () use ( $key ) {
-		printf( '<meta name="description" content="%s">' . "\n", esc_attr( hg( $key ) ) );
-	}, 2 );
 }
 
 // ---- Contact form ----

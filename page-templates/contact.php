@@ -3,7 +3,6 @@
  * Template Name: Contact
  */
 get_header();
-hg_set_page_meta( 'cp_meta' );
 
 hg_page_hero( [
 	'image'      => 'hero-contact-creek.jpg',

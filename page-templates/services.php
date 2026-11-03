@@ -3,7 +3,6 @@
  * Template Name: Services overview
  */
 get_header();
-hg_set_page_meta( 'svp_meta' );
 
 hg_page_hero( [
 	'image'      => 'hero-services.jpg',

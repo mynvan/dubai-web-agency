@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HG_VERSION', '0.3.6' );
+define( 'HG_VERSION', '0.3.7' );
 
 require_once get_template_directory() . '/inc/config.php';
 require_once get_template_directory() . '/inc/i18n.php';
@@ -38,10 +38,29 @@ add_action( 'wp_head', function () {
 	);
 }, 1 );
 
-// Meta description for the front page, translated.
+// Meta description (translated): front page and the page templates of the inner pages.
 add_action( 'wp_head', function () {
+	$key = '';
 	if ( is_front_page() ) {
-		printf( '<meta name="description" content="%s">' . "\n", esc_attr( hg( 'meta_description' ) ) );
+		$key = 'meta_description';
+	} else {
+		$map = [
+			'page-templates/services.php'         => 'svp_meta',
+			'page-templates/service-websites.php' => 'wd_meta',
+			'page-templates/service-hosting.php'  => 'hd_meta',
+			'page-templates/service-gdpr-seo.php' => 'gd_meta',
+			'page-templates/process.php'          => 'pp_meta',
+			'page-templates/contact.php'          => 'cp_meta',
+		];
+		foreach ( $map as $tpl => $k ) {
+			if ( is_page_template( $tpl ) ) {
+				$key = $k;
+				break;
+			}
+		}
+	}
+	if ( $key ) {
+		printf( '<meta name="description" content="%s">' . "\n", esc_attr( hg( $key ) ) );
 	}
 }, 2 );
 
