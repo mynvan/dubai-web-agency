@@ -185,15 +185,27 @@ function hg_handle_contact(): void {
 	$back = isset( $_POST['hg_back'] ) ? esc_url_raw( wp_unslash( $_POST['hg_back'] ) ) : home_url( '/' );
 	$back = wp_validate_redirect( $back, home_url( '/' ) );
 
+	// Honeypot: bots fill the hidden field. They get a fake "sent" so they stop retrying.
+	if ( ! empty( $_POST['hg_website'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+		wp_safe_redirect( add_query_arg( 'hg_sent', '1', $back ) . '#form' );
+		exit;
+	}
+
 	$ok = isset( $_POST['hg_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['hg_nonce'] ) ), 'hg_contact' );
-	// Honeypot field and minimum fill-in time catch simple bots.
-	if ( ! empty( $_POST['hg_website'] ) ) {
-		$ok = false;
-	}
+	// Timestamp is required (a missing value no longer skips the check); filling in under 3 seconds is a bot.
 	$started = isset( $_POST['hg_t'] ) ? (int) $_POST['hg_t'] : 0;
-	if ( $started && ( time() - $started ) < 3 ) {
+	if ( ! $started || ( time() - $started ) < 3 ) {
 		$ok = false;
 	}
+
+	// At most 5 submissions per IP and hour.
+	$ip  = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+	$key = 'hg_ct_' . md5( $ip );
+	$cnt = (int) get_transient( $key );
+	if ( $cnt >= 5 ) {
+		$ok = false;
+	}
+	set_transient( $key, $cnt + 1, HOUR_IN_SECONDS );
 
 	$name    = isset( $_POST['hg_name'] ) ? sanitize_text_field( wp_unslash( $_POST['hg_name'] ) ) : '';
 	$company = isset( $_POST['hg_company'] ) ? sanitize_text_field( wp_unslash( $_POST['hg_company'] ) ) : '';
@@ -201,6 +213,14 @@ function hg_handle_contact(): void {
 	$lang    = isset( $_POST['hg_lang'] ) && 'Deutsch' === $_POST['hg_lang'] ? 'Deutsch' : 'English';
 	$message = isset( $_POST['hg_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['hg_message'] ) ) : '';
 	$consent = ! empty( $_POST['hg_consent'] );
+
+	// Length and link checks: spam messages are mostly link lists.
+	if ( mb_strlen( $message ) > 4000 || mb_strlen( $name ) > 120 || mb_strlen( $company ) > 160 || mb_strlen( $email ) > 160 ) {
+		$ok = false;
+	}
+	if ( substr_count( strtolower( $message ), 'http' ) > 3 || false !== stripos( $name . ' ' . $company, 'http' ) ) {
+		$ok = false;
+	}
 
 	if ( ! $ok || ! hg_form_to() || '' === $name || ! is_email( $email ) || '' === $message || ! $consent ) {
 		wp_safe_redirect( add_query_arg( 'hg_sent', '0', $back ) . '#form' );
