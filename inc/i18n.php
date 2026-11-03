@@ -15,8 +15,9 @@ function hg_strings(): array {
 	$base = [
 		'meta_description' => [
 			'Web studio from Bavaria for German-speaking businesses in the UAE. Websites, hosting and care, GDPR and SEO. English and German, one contact person, clear scope.',
-			'Web-Studio aus Bayern für deutschsprachige Unternehmen in den VAE. Websites, Hosting und Betreuung, DSGVO und SEO. Englisch und Deutsch, ein Ansprechpartner, klarer Umfang.',
+			'Web-Studio aus Bayern für deutschsprachige Unternehmen in den VAE. Websites, Hosting, DSGVO und SEO. Englisch und Deutsch, ein Ansprechpartner.',
 		],
+		'title_home'       => [ 'Isar Creek — Websites for German-speaking businesses in the UAE', 'Isar Creek — Websites für deutschsprachige Firmen in den VAE' ],
 		'skip'             => [ 'Skip to content', 'Zum Inhalt springen' ],
 		'nav_services'     => [ 'Services', 'Leistungen' ],
 		'nav_process'      => [ 'Process', 'Ablauf' ],
@@ -197,7 +198,20 @@ function hg_lang_switcher(): void {
  */
 add_filter( 'pre_get_document_title', function ( $title ) {
 	if ( is_front_page() ) {
-		return HG_BRAND . ' — ' . rtrim( hg( 'hero_lead' ), '.' );
+		return hg( 'title_home' );
+	}
+	$map = [
+		'page-templates/services.php'         => 'svp_title',
+		'page-templates/service-websites.php' => 'wd_title',
+		'page-templates/service-hosting.php'  => 'hd_title',
+		'page-templates/service-gdpr-seo.php' => 'gd_title',
+		'page-templates/process.php'          => 'pp_title',
+		'page-templates/contact.php'          => 'cp_title',
+	];
+	foreach ( $map as $tpl => $key ) {
+		if ( is_page_template( $tpl ) ) {
+			return hg( $key ) . ' – ' . HG_BRAND;
+		}
 	}
 	return $title;
 } );

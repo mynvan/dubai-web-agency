@@ -15,6 +15,7 @@ return [
 	'pg_details'        => [ 'Details', 'Details' ],
 
 	// ---- Services overview ----
+	'svp_title'          => [ 'Services: Websites, Hosting, GDPR & SEO', 'Leistungen: Websites, Hosting, DSGVO & SEO' ],
 	'svp_meta'          => [
 		'Websites, hosting and care, GDPR and SEO for German-speaking businesses in the UAE. One contact person, English and German, clear scope.',
 		'Websites, Hosting und Betreuung, DSGVO und SEO für deutschsprachige Unternehmen in den VAE. Ein Ansprechpartner, Englisch und Deutsch, klarer Umfang.',
@@ -41,9 +42,10 @@ return [
 	'svc_c4'            => [ 'Google Business Profile and local search', 'Google-Unternehmensprofil und lokale Suche' ],
 
 	// ---- Website detail page ----
+	'wd_title'          => [ 'WordPress Websites for Businesses in Dubai', 'WordPress-Websites für Unternehmen in Dubai' ],
 	'wd_meta'           => [
-		'Custom WordPress websites for German-speaking businesses in Dubai and the UAE. Bilingual English and German, fast, editable, GDPR-ready. Design approval before the build.',
-		'Individuelle WordPress-Websites für deutschsprachige Unternehmen in Dubai und den VAE. Zweisprachig Englisch und Deutsch, schnell, editierbar, DSGVO-bereit. Design-Freigabe vor dem Bau.',
+		'Custom WordPress websites for German-speaking businesses in Dubai and the UAE. Bilingual, fast, editable, GDPR-ready. Design approval before the build.',
+		'Individuelle WordPress-Websites für deutschsprachige Unternehmen in Dubai und den VAE. Zweisprachig, schnell, editierbar, DSGVO-bereit. Design-Freigabe vor dem Bau.',
 	],
 	'wd_title_a'        => [ 'Websites for German-speaking businesses in', 'Websites für deutschsprachige Unternehmen in' ],
 	'wd_title_b'        => [ 'Dubai.', 'Dubai.' ],
@@ -88,9 +90,10 @@ return [
 	'wd_next_proc'      => [ 'The process', 'Der Ablauf' ],
 
 	// ---- Process page ----
+	'pp_title'          => [ 'How a Website Project Works', 'So läuft Ihr Website-Projekt ab' ],
 	'pp_meta'           => [
 		'How a website project with Isar Creek works: call, quote, design approval, build and review, launch and care. Nothing is built before you approve the design.',
-		'So läuft ein Website-Projekt mit Isar Creek ab: Gespräch, Angebot, Design-Freigabe, Umsetzung und Abnahme, Livegang und Betreuung. Nichts wird gebaut, bevor Sie das Design freigeben.',
+		'So läuft ein Website-Projekt mit Isar Creek ab: Gespräch, Angebot, Design-Freigabe, Umsetzung, Livegang. Nichts wird gebaut, bevor Sie das Design freigeben.',
 	],
 	'pp_eyebrow'        => [ '03 — Process', '03 — Ablauf' ],
 	'pp_title_a'        => [ 'You approve the design', 'Sie geben das Design frei,' ],
@@ -126,6 +129,7 @@ return [
 	'pp_cta_title'      => [ 'Ready for step one?', 'Bereit für Schritt eins?' ],
 
 	// ---- Contact page ----
+	'cp_title'          => [ 'Contact & 30-Minute Call', 'Kontakt & 30-Minuten-Gespräch' ],
 	'cp_meta'           => [
 		'Contact Isar Creek: book a 30-minute call or send a request. English or German, answer within one working day.',
 		'Kontakt zu Isar Creek: 30-Minuten-Gespräch buchen oder Anfrage senden. Englisch oder Deutsch, Antwort innerhalb eines Werktags.',
@@ -149,6 +153,7 @@ return [
 	'cp_talk'           => [ 'Prefer to talk first?', 'Lieber erst sprechen?' ],
 
 	// ---- Detail page: Hosting & care ----
+	'hd_title'          => [ 'WordPress Hosting & Care in the UAE', 'WordPress-Hosting & Betreuung in den VAE' ],
 	'hd_meta'           => [
 		'Managed WordPress hosting, updates, backups and monitoring for websites of German-speaking businesses in Dubai and the UAE. One contact person, clear scope.',
 		'Betreutes WordPress-Hosting, Updates, Backups und Überwachung für Websites deutschsprachiger Unternehmen in Dubai und den VAE. Ein Ansprechpartner, klarer Umfang.',
@@ -184,6 +189,7 @@ return [
 	'hd_a4'             => [ 'Yes. The site is built so that texts and images are changed in WordPress. Care does not take that away from you.', 'Ja. Die Seite ist so gebaut, dass Texte und Bilder in WordPress geändert werden. Die Betreuung nimmt Ihnen das nicht weg.' ],
 
 	// ---- Detail page: GDPR & SEO ----
+	'gd_title'          => [ 'GDPR, Legal Pages & SEO for UAE Websites', 'DSGVO, Impressum & SEO für Websites in den VAE' ],
 	'gd_meta'           => [
 		'Imprint, privacy policy, consent and search engine optimisation for websites of German-speaking businesses in Dubai and the UAE.',
 		'Impressum, Datenschutzerklärung, Einwilligung und Suchmaschinenoptimierung für Websites deutschsprachiger Unternehmen in Dubai und den VAE.',
