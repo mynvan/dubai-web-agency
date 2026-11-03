@@ -53,8 +53,8 @@ function hg_strings(): array {
 		'services_title'   => [ 'Three things, done properly.', 'Drei Dinge, sauber gemacht.' ],
 		'svc_a_title'      => [ 'Websites', 'Websites' ],
 		'svc_a_text'       => [
-			'Custom theme, designed and built from scratch. English first, German alongside.',
-			'Individuelles Theme, von Grund auf gestaltet und gebaut. Englisch zuerst, Deutsch gleichberechtigt.',
+			'Custom design, built in WordPress. English first, German alongside.',
+			'Individuelles Design, umgesetzt in WordPress. Englisch zuerst, Deutsch gleichberechtigt.',
 		],
 		'svc_b_title'      => [ 'Hosting & care', 'Hosting & Betreuung' ],
 		'svc_b_text'       => [
