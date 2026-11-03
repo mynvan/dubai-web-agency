@@ -138,6 +138,12 @@ function hg( string $key ): string {
 	}
 	[ $en, $de ] = $map[ $key ];
 
+	// Same text in both languages (brand and project names, years): nothing to translate.
+	// This also keeps old saved Polylang translations (e.g. a former brand name) from replacing it.
+	if ( $en === $de ) {
+		return $en;
+	}
+
 	$translated = function_exists( 'pll__' ) ? pll__( $en ) : $en;
 
 	if ( 'de' === hg_lang() ) {
