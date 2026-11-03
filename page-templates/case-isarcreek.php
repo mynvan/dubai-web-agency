@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Case study: Isar Creek
+ * Template Name: Case study: IsarCreek
  */
 get_header();
 hg_case_study( 'ic', 'cs', 'hero-websites.jpg', 'wd', '', '' );

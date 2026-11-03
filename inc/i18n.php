@@ -17,7 +17,7 @@ function hg_strings(): array {
 			'Web studio from Bavaria for German-speaking businesses in the UAE. Websites, hosting and care, GDPR and SEO. English and German, one contact person, clear scope.',
 			'Web-Studio aus Bayern für deutschsprachige Unternehmen in den VAE. Websites, Hosting, DSGVO und SEO. Englisch und Deutsch, ein Ansprechpartner.',
 		],
-		'title_home'       => [ 'Isar Creek — Websites for German-speaking businesses in the UAE', 'Isar Creek — Websites für deutschsprachige Firmen in den VAE' ],
+		'title_home'       => [ 'IsarCreek — Websites for German-speaking businesses in the UAE', 'IsarCreek — Websites für deutschsprachige Firmen in den VAE' ],
 		'skip'             => [ 'Skip to content', 'Zum Inhalt springen' ],
 		'nav_services'     => [ 'Services', 'Leistungen' ],
 		'nav_process'      => [ 'Process', 'Ablauf' ],
@@ -41,8 +41,8 @@ function hg_strings(): array {
 		'name_eyebrow'     => [ 'The name', 'Der Name' ],
 		'name_title'       => [ 'Two waters, one route.', 'Zwei Gewässer, eine Route.' ],
 		'name_text'        => [
-			'The Isar runs through Munich. Dubai Creek is where the city\'s trade began. Isar Creek connects the two: German businesses, set up properly in Dubai.',
-			'Die Isar fließt durch München, am Dubai Creek begann der Handel der Stadt. Isar Creek verbindet beide: deutsche Unternehmen, sauber aufgestellt in Dubai.',
+			'The Isar runs through Munich. Dubai Creek is where the city\'s trade began. IsarCreek connects the two: German businesses, set up properly in Dubai.',
+			'Die Isar fließt durch München, am Dubai Creek begann der Handel der Stadt. IsarCreek verbindet beide: deutsche Unternehmen, sauber aufgestellt in Dubai.',
 		],
 		'name_from'        => [ 'ISAR', 'ISAR' ],
 		'name_to'          => [ 'CREEK', 'CREEK' ],
@@ -169,7 +169,7 @@ add_action( 'init', function () {
 		return;
 	}
 	foreach ( hg_strings() as $key => [ $en ] ) {
-		pll_register_string( $key, $en, 'Isar Creek', strlen( $en ) > 70 );
+		pll_register_string( $key, $en, 'IsarCreek', strlen( $en ) > 70 );
 	}
 } );
 

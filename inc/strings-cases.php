@@ -2,7 +2,7 @@
 /**
  * Texts of the case study pages and their tiles on the front page.
  * Format as in hg_strings(): key => [ english, german ].
- * Prefix cs = cleansolution, ic = Isar Creek.
+ * Prefix cs = cleansolution, ic = IsarCreek.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,8 +26,8 @@ return [
 	// ---- Work overview ----
 	'wk_title'         => [ 'Work: Website Case Studies', 'Referenzen: Website-Case-Studies' ],
 	'wk_meta'          => [
-		'Two case studies from Isar Creek: a website cared for since 2018 with a page builder, and this website, built as a custom theme without one.',
-		'Zwei Case Studies von Isar Creek: eine seit 2018 betreute Website mit Page-Builder und diese Website, gebaut als eigenes Theme ohne Page-Builder.',
+		'Two case studies from IsarCreek: a website cared for since 2018 with a page builder, and this website, built as a custom theme without one.',
+		'Zwei Case Studies von IsarCreek: eine seit 2018 betreute Website mit Page-Builder und diese Website, gebaut als eigenes Theme ohne Page-Builder.',
 	],
 	'wk_lead'          => [
 		'Two projects, two routes: a long-running website with a page builder, and this website as a custom theme without one.',
@@ -92,20 +92,20 @@ return [
 	'cs_ext_text'      => [ 'Full case study on philippgebhart.de', 'Ausführliche Case Study auf philippgebhart.de' ],
 	'cs_tile'          => [ 'Website care since 2018. With a page builder.', 'Website-Betreuung seit 2018. Mit Page-Builder.' ],
 
-	// ---- Isar Creek ----
-	'ic_crumb'         => [ 'Isar Creek', 'Isar Creek' ],
+	// ---- IsarCreek ----
+	'ic_crumb'         => [ 'IsarCreek', 'IsarCreek' ],
 	'ic_title'         => [ 'Case Study: This Website, Built Without a Page Builder', 'Case Study: Diese Website, gebaut ohne Page-Builder' ],
 	'ic_meta'          => [
-		'How the Isar Creek website was built: a custom WordPress theme without a page builder, bilingual EN/DE, with consent, structured data and automatic deployment.',
-		'Wie die Isar-Creek-Website gebaut wurde: individuelles WordPress-Theme ohne Page-Builder, zweisprachig EN/DE, mit Consent, strukturierten Daten und automatischem Deployment.',
+		'How the IsarCreek website was built: a custom WordPress theme without a page builder, bilingual EN/DE, with consent, structured data and automatic deployment.',
+		'Wie die IsarCreek-Website gebaut wurde: individuelles WordPress-Theme ohne Page-Builder, zweisprachig EN/DE, mit Consent, strukturierten Daten und automatischem Deployment.',
 	],
 	'ic_title_a'       => [ 'This website:', 'Diese Website:' ],
-	'ic_title_b'       => [ 'Isar Creek.', 'Isar Creek.' ],
+	'ic_title_b'       => [ 'IsarCreek.', 'IsarCreek.' ],
 	'ic_lead'          => [
 		'The first project for the Dubai market: bilingual, built without a page builder, prepared legally and for search.',
 		'Das erste Projekt für den Dubai-Markt: zweisprachig, ohne Page-Builder gebaut, rechtlich und für die Suche vorbereitet.',
 	],
-	'ic_v_client'      => [ 'Isar Creek (own project)', 'Isar Creek (eigenes Projekt)' ],
+	'ic_v_client'      => [ 'IsarCreek (own project)', 'IsarCreek (eigenes Projekt)' ],
 	'ic_v_industry'    => [ 'Web studio for German-speaking businesses in the UAE', 'Web-Studio für deutschsprachige Unternehmen in den VAE' ],
 	'ic_v_year'        => [ '2026', '2026' ],
 	'ic_v_stack'       => [ 'WordPress, custom theme, no page builder', 'WordPress, eigenes Theme, ohne Page-Builder' ],

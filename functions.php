@@ -1,13 +1,13 @@
 <?php
 /**
- * Isar Creek theme bootstrap.
+ * IsarCreek theme bootstrap.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HG_VERSION', '0.4.2' );
+define( 'HG_VERSION', '0.4.3' );
 
 require_once get_template_directory() . '/inc/config.php';
 require_once get_template_directory() . '/inc/i18n.php';

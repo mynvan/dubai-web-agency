@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Brand name shown in logo, hero and footer.
 if ( ! defined( 'HG_BRAND' ) ) {
-	define( 'HG_BRAND', 'Isar Creek' );
+	define( 'HG_BRAND', 'IsarCreek' );
 }
 
 // Public contact e-mail. Leave empty until it exists; it is then not shown.
