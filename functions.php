@@ -7,13 +7,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HG_VERSION', '0.3.9' );
+define( 'HG_VERSION', '0.3.10' );
 
 require_once get_template_directory() . '/inc/config.php';
 require_once get_template_directory() . '/inc/i18n.php';
 require_once get_template_directory() . '/inc/references.php';
 require_once get_template_directory() . '/inc/pages.php';
 require_once get_template_directory() . '/inc/analytics.php';
+require_once get_template_directory() . '/inc/seo.php';
 
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'title-tag' );
