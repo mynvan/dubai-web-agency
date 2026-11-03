@@ -105,7 +105,11 @@ function hg_strings(): array {
 		'404_back'         => [ 'Back to home', 'Zur Startseite' ],
 	];
 
-	return array_merge( $base, require get_template_directory() . '/inc/strings-pages.php' );
+	return array_merge(
+		$base,
+		require get_template_directory() . '/inc/strings-pages.php',
+		require get_template_directory() . '/inc/strings-cases.php'
+	);
 }
 
 /**
@@ -207,6 +211,8 @@ add_filter( 'pre_get_document_title', function ( $title ) {
 		'page-templates/service-gdpr-seo.php' => 'gd_title',
 		'page-templates/process.php'          => 'pp_title',
 		'page-templates/contact.php'          => 'cp_title',
+		'page-templates/case-cleansolution.php' => 'cs_title',
+		'page-templates/case-isarcreek.php'   => 'ic_title',
 	];
 	foreach ( $map as $tpl => $key ) {
 		if ( is_page_template( $tpl ) ) {

@@ -28,6 +28,8 @@ function hg_template_url( string $slug ): string {
 		'gdpr'     => 'page-templates/service-gdpr-seo.php',
 		'process'  => 'page-templates/process.php',
 		'contact'  => 'page-templates/contact.php',
+		'cs'       => 'page-templates/case-cleansolution.php',
+		'ic'       => 'page-templates/case-isarcreek.php',
 	];
 	$url = '';
 	if ( isset( $files[ $slug ] ) ) {
@@ -53,7 +55,7 @@ function hg_template_url( string $slug ): string {
 		}
 	}
 	if ( ! $url ) {
-		$anchors = [ 'services' => 'services', 'websites' => 'services', 'hosting' => 'services', 'gdpr' => 'services', 'process' => 'process', 'contact' => 'contact' ];
+		$anchors = [ 'services' => 'services', 'websites' => 'services', 'hosting' => 'services', 'gdpr' => 'services', 'process' => 'process', 'contact' => 'contact', 'cs' => 'work', 'ic' => 'work' ];
 		$url     = hg_home_anchor( $anchors[ $slug ] ?? 'contact' );
 	}
 	$cache[ $key ] = $url;
@@ -77,7 +79,7 @@ function hg_page_hero( array $args ): void {
 	<div class="page-hero__shade"></div>
 	<div class="page-hero__body">
 		<?php if ( ! empty( $args['crumb'] ) ) : ?>
-			<p class="crumb mono"><a href="<?php echo esc_url( hg_template_url( 'services' ) ); ?>"><?php hg_e( 'pg_crumb_home' ); ?></a> &nbsp;/&nbsp; <?php echo esc_html( $args['crumb'] ); ?></p>
+			<p class="crumb mono"><a href="<?php echo esc_url( $args['crumb_url'] ?? hg_template_url( 'services' ) ); ?>"><?php hg_e( $args['crumb_home'] ?? 'pg_crumb_home' ); ?></a> &nbsp;/&nbsp; <?php echo esc_html( $args['crumb'] ); ?></p>
 		<?php else : ?>
 			<p class="eyebrow mono"><?php hg_e( $args['eyebrow'] ); ?></p>
 		<?php endif; ?>
@@ -162,6 +164,99 @@ function hg_service_detail( string $p, string $image, string $crumb, array $othe
 	</a>
 </section>
 	<?php
+}
+
+/**
+ * Complete case study page. Texts come from the keys with the given prefix.
+ *
+ * @param string $p       Key prefix of this case (cs, ic).
+ * @param string $other   Key prefix of the other case, linked at the end.
+ * @param string $image   Hero file in assets/img.
+ * @param string $hero    Key prefix of the hero alt/credit texts (wd, hd).
+ * @param string $shot    Optional screenshot in assets/img, shown below the facts.
+ * @param string $ext_url Optional link to the long version of the case.
+ */
+function hg_case_study( string $p, string $other, string $image, string $hero, string $shot = '', string $ext_url = '' ): void {
+	hg_page_hero( [
+		'image'      => $image,
+		'alt'        => "{$hero}_hero_alt",
+		'credit'     => "{$hero}_hero_credit",
+		'crumb'      => hg( "{$p}_crumb" ),
+		'crumb_home' => 'nav_work',
+		'crumb_url'  => hg_home_anchor( 'work' ),
+		'title_html' => esc_html( hg( "{$p}_title_a" ) ) . ' <span class="accent">' . esc_html( hg( "{$p}_title_b" ) ) . '</span>',
+		'lead'       => "{$p}_lead",
+		'cta'        => true,
+	] );
+	$facts = [
+		[ 'case_l_client', "{$p}_v_client" ],
+		[ 'case_l_industry', "{$p}_v_industry" ],
+		[ 'case_l_year', "{$p}_v_year" ],
+		[ 'case_l_stack', "{$p}_v_stack" ],
+	];
+	?>
+<section class="case-facts">
+	<dl class="case-facts__list">
+		<?php foreach ( $facts as [ $label, $value ] ) : ?>
+			<div class="case-facts__item">
+				<dt class="mono"><?php hg_e( $label ); ?></dt>
+				<dd><?php hg_e( $value ); ?></dd>
+			</div>
+		<?php endforeach; ?>
+	</dl>
+	<?php if ( $shot && is_readable( get_template_directory() . '/assets/img/' . $shot ) ) : ?>
+		<?php $size = getimagesize( get_template_directory() . '/assets/img/' . $shot ); ?>
+		<figure class="case-facts__shot">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/' . $shot ); ?>" width="<?php echo (int) $size[0]; ?>" height="<?php echo (int) $size[1]; ?>" alt="<?php hg_e( 'case_shot_alt' ); ?>" loading="lazy" decoding="async">
+		</figure>
+	<?php endif; ?>
+</section>
+
+<section class="split">
+	<div class="split__head">
+		<p class="eyebrow mono"><?php hg_e( 'case_start' ); ?></p>
+	</div>
+	<div class="split__body">
+		<p><?php hg_e( "{$p}_start_text" ); ?></p>
+	</div>
+</section>
+
+<section class="split split--band">
+	<div class="split__head">
+		<p class="eyebrow mono"><?php hg_e( 'case_do_eyebrow' ); ?></p>
+		<h2 class="split__title"><?php hg_e( 'case_do_title' ); ?></h2>
+	</div>
+	<ol class="numbered">
+		<?php for ( $i = 1; $i <= 5; $i++ ) : ?>
+			<li><span class="numbered__n mono" aria-hidden="true">0<?php echo (int) $i; ?></span><span><?php hg_html( "{$p}_do_{$i}" ); ?></span></li>
+		<?php endfor; ?>
+	</ol>
+</section>
+
+<section class="split">
+	<div class="split__head">
+		<p class="eyebrow mono"><?php hg_e( 'case_res_eyebrow' ); ?></p>
+	</div>
+	<div class="split__body">
+		<p><?php hg_e( "{$p}_res_text" ); ?></p>
+		<?php if ( $ext_url ) : ?>
+			<p class="mono split__refs"><a href="<?php echo esc_url( $ext_url ); ?>" rel="noopener"><?php hg_e( "{$p}_ext_text" ); ?> &rarr;</a></p>
+		<?php endif; ?>
+	</div>
+</section>
+
+<section class="next-links">
+	<a class="next-link" href="<?php echo esc_url( hg_template_url( $other ) ); ?>">
+		<span class="mono"><?php hg_e( 'case_other_label' ); ?></span>
+		<strong><?php hg_e( "{$p}_other_text" ); ?> <?php hg_e( "{$other}_crumb" ); ?> &rarr;</strong>
+	</a>
+	<a class="next-link next-link--accent" href="<?php echo esc_url( hg_template_url( 'process' ) ); ?>">
+		<span class="mono"><?php hg_e( 'wd_next_proc_l' ); ?></span>
+		<strong><?php hg_e( 'wd_next_proc' ); ?> &rarr;</strong>
+	</a>
+</section>
+	<?php
+	hg_cta_band( 'contact_title' );
 }
 
 /**

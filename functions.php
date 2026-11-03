@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HG_VERSION', '0.3.10' );
+define( 'HG_VERSION', '0.4.0' );
 
 require_once get_template_directory() . '/inc/config.php';
 require_once get_template_directory() . '/inc/i18n.php';
@@ -52,6 +52,8 @@ add_action( 'wp_head', function () {
 			'page-templates/service-gdpr-seo.php' => 'gd_meta',
 			'page-templates/process.php'          => 'pp_meta',
 			'page-templates/contact.php'          => 'cp_meta',
+			'page-templates/case-cleansolution.php' => 'cs_meta',
+			'page-templates/case-isarcreek.php'   => 'ic_meta',
 		];
 		foreach ( $map as $tpl => $k ) {
 			if ( is_page_template( $tpl ) ) {
@@ -80,6 +82,8 @@ add_filter( 'body_class', function ( array $classes ): array {
 		'page-templates/service-gdpr-seo.php',
 		'page-templates/process.php',
 		'page-templates/contact.php',
+		'page-templates/case-cleansolution.php',
+		'page-templates/case-isarcreek.php',
 	] ) ) {
 		$classes[] = 'has-hero';
 	}

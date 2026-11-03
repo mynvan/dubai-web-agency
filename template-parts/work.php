@@ -6,12 +6,38 @@ $refs = new WP_Query( [
 	'order'          => 'ASC',
 	'no_found_rows'  => true,
 ] );
+
+// Case study pages: shown as tiles once both pages exist (otherwise the URL falls back to a front page anchor).
+$cases = [];
+foreach ( [ 'cs', 'ic' ] as $slug ) {
+	$url = hg_template_url( $slug );
+	if ( false === strpos( $url, '#' ) ) {
+		$cases[ $slug ] = $url;
+	}
+}
 ?>
 <section id="work" class="section">
 	<p class="eyebrow mono"><?php hg_e( 'work_eyebrow' ); ?></p>
 	<h2 class="section__title"><?php hg_e( 'work_title' ); ?></h2>
 
-	<?php if ( $refs->have_posts() ) : ?>
+	<?php if ( $cases ) : ?>
+		<div class="tiles">
+			<?php
+			$i = 0;
+			foreach ( $cases as $slug => $url ) :
+				$cls = 'tile tile--case tile--' . ( $i % 2 ? 'dark' : 'accent' );
+				?>
+				<a class="<?php echo esc_attr( $cls ); ?>" href="<?php echo esc_url( $url ); ?>">
+					<span class="tile__label mono"><?php hg_e( "{$slug}_crumb" ); ?></span>
+					<span class="tile__text"><?php hg_e( "{$slug}_tile" ); ?></span>
+					<span class="tile__more"><?php hg_e( 'work_tile_more' ); ?> &rarr;</span>
+				</a>
+				<?php
+				++$i;
+			endforeach;
+			?>
+		</div>
+	<?php elseif ( $refs->have_posts() ) : ?>
 		<div class="tiles">
 			<?php
 			$i = 0;

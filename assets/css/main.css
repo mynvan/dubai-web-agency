@@ -428,6 +428,21 @@ h1, h2, h3, p { margin: 0; }
 .more { font-weight: 700; font-size: 20px; }
 .more a { color: var(--accent); }
 
+/* Case tiles on the front page */
+.tile--case { flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 24px; min-height: 300px; }
+.tile--case .tile__label { align-self: flex-start; }
+.tile__text { position: relative; font-weight: 800; font-size: clamp(22px, 2.6vw, 34px); letter-spacing: -0.03em; line-height: 1.08; max-width: 520px; }
+.tile__more { position: relative; font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Case study pages: facts bar and screenshot */
+.case-facts { max-width: 1400px; margin: 0 auto; padding: 56px var(--pad) 8px; }
+.case-facts__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 32px; margin: 0; padding: 0 0 32px; border-bottom: 1px solid var(--line); }
+.case-facts__item { display: flex; flex-direction: column; gap: 6px; }
+.case-facts__item dt { font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+.case-facts__item dd { margin: 0; font-size: 18px; color: var(--fg); }
+.case-facts__shot { margin: 40px 0 0; }
+.case-facts__shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+
 /* Contact / boarding pass */
 
 .contact { padding: 0 var(--pad) 80px; }
