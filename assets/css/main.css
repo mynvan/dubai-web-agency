@@ -836,3 +836,64 @@ h1, h2, h3, p { margin: 0; }
 
 /* Work overview: link to the long list of references */
 .work-more { max-width: 1400px; margin: 0 auto; padding: 56px var(--pad) 8px; }
+
+/* ---------- About: portrait + intro (front page) ---------- */
+
+.about {
+	display: grid;
+	grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+	gap: 56px clamp(40px, 7vw, 96px);
+	align-items: center;
+}
+.about__figure { position: relative; margin: 0; }
+.about__figure::before {
+	content: "";
+	position: absolute;
+	inset: 24px -24px -24px 24px;
+	background: var(--accent);
+}
+.about__photo {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+}
+.about__caption {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: var(--bg);
+	color: var(--fg);
+	padding: 10px 16px;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+.about__body { display: flex; flex-direction: column; gap: 24px; }
+.about__title {
+	font-weight: 900;
+	font-size: clamp(36px, 5vw, 64px);
+	line-height: 0.98;
+	letter-spacing: -0.03em;
+	text-transform: uppercase;
+	overflow-wrap: anywhere;
+}
+.about__text { font-size: clamp(19px, 1.8vw, 22px); line-height: 1.4; color: var(--soft); max-width: 560px; }
+.about__facts { margin: 8px 0 0; max-width: 560px; border-top: 1px solid var(--fg); }
+.about__facts > div {
+	display: flex;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 14px 0;
+	border-bottom: 1px solid var(--line);
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+.about__facts dt { color: var(--muted); }
+.about__facts dd { margin: 0; font-weight: 500; text-align: right; }
+.about__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 8px; }
+@media (max-width: 860px) {
+	.about { grid-template-columns: minmax(0, 1fr); }
+	.about__figure { max-width: 420px; margin-right: 24px; }
+}

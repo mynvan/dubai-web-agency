@@ -49,6 +49,18 @@ function hg_strings(): array {
 		'name_from_cap'    => [ 'Munich', 'München' ],
 		'name_to_cap'      => [ 'Dubai', 'Dubai' ],
 
+		'about_eyebrow'    => [ 'Who builds your site', 'Wer Ihre Website baut' ],
+		'about_title'      => [ 'One person. First call to launch.', 'Ein Ansprechpartner. Vom ersten Gespräch bis zum Livegang.' ],
+		'about_text'       => [
+			'I\'m Philipp. I design and build every site myself, in English and German, and I stay your contact after launch. No agency layers, no hand-offs.',
+			'Ich bin Philipp. Ich gestalte und baue jede Website selbst, auf Englisch und Deutsch, und bleibe nach dem Livegang Ihr Ansprechpartner. Keine Agentur-Ebenen, keine Übergaben.',
+		],
+		'about_alt'        => [ 'Portrait of Philipp Gebhart', 'Porträt von Philipp Gebhart' ],
+		'about_caption'    => [ 'Philipp Gebhart — Founder', 'Philipp Gebhart — Gründer' ],
+		'about_based'      => [ 'Based in', 'Standort' ],
+		'about_services'   => [ 'Websites · Hosting & care · GDPR & SEO', 'Websites · Hosting & Betreuung · DSGVO & SEO' ],
+		'about_more'       => [ 'More about me', 'Mehr über mich' ],
+
 		'services_eyebrow' => [ '01 — Services', '01 — Leistungen' ],
 		'services_title'   => [ 'Three things, done properly.', 'Drei Dinge, sauber gemacht.' ],
 		'svc_a_title'      => [ 'Websites', 'Websites' ],
