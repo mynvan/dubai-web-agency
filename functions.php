@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HG_VERSION', '0.4.4' );
+define( 'HG_VERSION', '0.5.0' );
 
 require_once get_template_directory() . '/inc/config.php';
 require_once get_template_directory() . '/inc/i18n.php';
@@ -15,6 +15,7 @@ require_once get_template_directory() . '/inc/references.php';
 require_once get_template_directory() . '/inc/pages.php';
 require_once get_template_directory() . '/inc/analytics.php';
 require_once get_template_directory() . '/inc/seo.php';
+require_once get_template_directory() . '/inc/guide.php';
 
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'title-tag' );
@@ -65,6 +66,11 @@ add_action( 'wp_head', function () {
 	}
 	if ( $key ) {
 		printf( '<meta name="description" content="%s">' . "\n", esc_attr( hg( $key ) ) );
+	} elseif ( is_page_template( 'page-templates/guide.php' ) ) {
+		$desc = trim( wp_strip_all_tags( (string) get_the_excerpt() ) );
+		if ( '' !== $desc ) {
+			printf( '<meta name="description" content="%s">' . "\n", esc_attr( $desc ) );
+		}
 	}
 }, 2 );
 

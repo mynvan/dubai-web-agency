@@ -61,6 +61,13 @@ function hg_strings(): array {
 		'about_services'   => [ 'Websites · Hosting & care · GDPR & SEO', 'Websites · Hosting & Betreuung · DSGVO & SEO' ],
 		'about_more'       => [ 'More about me', 'Mehr über mich' ],
 
+		'guide_label'       => [ 'Guide', 'Ratgeber' ],
+		'guide_updated'     => [ 'Updated', 'Stand' ],
+		'guide_author'      => [ 'Philipp Gebhart', 'Philipp Gebhart' ],
+		'guide_toc'         => [ 'On this page', 'Auf dieser Seite' ],
+		'guide_cta_eyebrow' => [ 'Boarding pass — Contact', 'Bordkarte — Kontakt' ],
+		'guide_cta_title'   => [ 'Need a website built?', 'Website bauen lassen?' ],
+
 		'services_eyebrow' => [ '01 — Services', '01 — Leistungen' ],
 		'services_title'   => [ 'Three things, done properly.', 'Drei Dinge, sauber gemacht.' ],
 		'svc_a_title'      => [ 'Websites', 'Websites' ],

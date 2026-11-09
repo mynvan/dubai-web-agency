@@ -142,6 +142,19 @@ add_action( 'wp_head', function () {
 			];
 			// The studio entity itself is defined on the front page; repeat it so the page stands alone.
 			$graph[] = $org;
+		} elseif ( is_page_template( 'page-templates/guide.php' ) ) {
+			$graph[] = [
+				'@type'         => 'Article',
+				'@id'           => $url . '#article',
+				'headline'      => wp_strip_all_tags( get_the_title() ),
+				'url'           => $url,
+				'inLanguage'    => $lang,
+				'datePublished' => get_the_date( 'c' ),
+				'dateModified'  => get_the_modified_date( 'c' ),
+				'author'        => [ '@type' => 'Person', 'name' => hg( 'guide_author' ) ],
+				'publisher'     => [ '@id' => $org['@id'] ],
+			];
+			$graph[] = $org;
 		}
 	}
 
